@@ -1,8 +1,8 @@
 from typing import List
-from model.Tag import Tag
-from model.Trigger import Trigger
-from model.Variable import Variable
-from model.Version import Version
+from domain.Tag import Tag
+from domain.Trigger import Trigger
+from domain.Variable import Variable
+from domain.Version import Version
 
 class Container:
     def __init__(self, name: str):
@@ -11,7 +11,10 @@ class Container:
         self.triggers: List[Trigger] = []
         self.variables: List[Variable] = []
         self.version: Version
-        self.containerId: str
+        self.container_id: str
+        self.account_id: str
+        self.container_path: str
+  
 
     # tag methods
     def add_tag(self, tag: Tag):
@@ -45,7 +48,7 @@ class Container:
 
     # container methods
     def getContainerId(self):
-        return self.containerId
+        return self.container_id
     
     def publish(self, version: str):
         """
